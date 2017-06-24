@@ -1,0 +1,124 @@
+
+
+/**
+ * IMPORTANT: Add your package below. Package name can be found in the project's AndroidManifest.xml file.
+ * This is the package name our example uses:
+ *
+ * package com.example.android.justjava;
+ *
+ */
+
+package com.example.ipshita.justjava;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.CollationElementIterator;
+
+/**
+ * This app displays an order form to order coffee.
+ */
+public class MainActivity extends AppCompatActivity
+{
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+public  int noc =0;
+    /**
+     * This method is called when the order button is clicked.
+     */
+    public void submitOrder(View view)
+    {
+        display(noc);
+        display1(noc*5);
+        if(noc==0)
+        {
+            showidiotoast();
+        }
+        else
+            {
+            TextView greetTextView = (TextView) findViewById(R.id.greeting_text_view);
+            greetTextView.setText("Thank You!!");
+            }
+    }
+
+    /**
+     * This method displays the given quantity value on the screen.
+     */
+    private void display(int number)
+    {
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        quantityTextView.setText("" + number);
+    }
+
+
+
+    private void display1(int number)
+    {
+        TextView testTextView = (TextView) findViewById(R.id.test_text_view);
+        if (number==0)
+        {
+            testTextView.setText("That's free!" );
+        }
+        else
+            {
+            float j;
+            j = (float) number;
+            testTextView.setText("That would be ₹ " + j + " please");
+            }
+    }
+
+    public void increment(View view)
+    {
+        noc++;
+        if(noc>15)
+        {
+            noc=15;
+            showToastincre();
+        }
+        display(noc);
+        display1(noc*5);
+        TextView greetTextView = (TextView) findViewById(R.id.greeting_text_view);
+        greetTextView.setText("");
+    }
+
+    public void showToastincre()
+    {
+       Toast toast = Toast.makeText(this, "Uh oh that's too much", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    public void showidiotoast()
+    {
+        Toast toast = Toast.makeText(this, "C'mon...", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+    public void showToastdecre()
+    {
+        Toast toast = Toast.makeText(this, "Really?", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+
+    public void decrement(View view)
+    {
+        noc--;
+        if(noc<0)
+        {
+            noc=0;
+            showToastdecre();
+        }
+        display(noc);
+        display1(noc*5);
+        TextView greetTextView = (TextView) findViewById(R.id.greeting_text_view);
+        greetTextView.setText("");
+    }
+
+
+}
