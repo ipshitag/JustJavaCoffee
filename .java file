@@ -59,19 +59,21 @@ public  int noc =0;
 
 
 
-    private void display1(int number)
+     private void display1(int number)
     {
+        NumberFormat curr = NumberFormat.getCurrencyInstance(new Locale("en", "IN"));
+        String niceMoney;
         TextView testTextView = (TextView) findViewById(R.id.test_text_view);
         if (number==0)
         {
             testTextView.setText("That's free!" );
         }
         else
-            {
-            float j;
-            j = (float) number;
-            testTextView.setText("That would be ₹ " + j + " please");
-            }
+        {
+            niceMoney = curr.format(number);
+            testTextView.setText("That would be " + niceMoney + " please");
+
+        }
     }
 
     public void increment(View view)
