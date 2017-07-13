@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Coffee Type</string>
+    <string-array name="Types">
+        <item>Espresso</item>
+        <item>Frappe</item>
+        <item>Eiskaffe</item>
+        <item>Decaf</item>
+        <item>Cortado</item>
+        <item>Cappuccino</item>
+        <item>Cafe Breve</item>
+        <item>Cafe au lait</item>
+        <item>Macchiato</item>
+        <item>Latte</item>
+        <item>Latte Macchiato</item>
+        <item>Affogato</item>
+    </string-array>
+</resources>
